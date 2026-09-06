@@ -79,7 +79,7 @@ On the untouched MNIST test set, the final model achieved:
 ### Training Performance
 
 <p align="center">
-  <img src="images/model_history" width="48%">
+  <img src="images/model_history.png" width="48%">
 </p>
 
 ### Confusion Matrix
