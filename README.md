@@ -112,9 +112,9 @@ The browser converts the drawing into an image and sends it to a FastAPI `/predi
 number_classification/
 │
 ├── backend/
-│   ├── `app.py` - FastAPI backend
-│   ├── `inference.py` - image preprocessing and prediction logic
-│   ├── `model.py` - CNN architecture used for inference
+│   ├── `app.py`  FastAPI backend
+│   ├── `inference.py`  image preprocessing and prediction logic
+│   ├── `model.py`  CNN architecture used for inference
 │   └── best_cnn_model.pth
 │
 ├── frontend/
