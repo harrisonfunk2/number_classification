@@ -109,27 +109,29 @@ The browser converts the drawing into an image and sends it to a FastAPI `/predi
 
 
 ## Project Structure
+
+```text
 number_classification/
 │
 ├── backend/
-│   ├── `app.py`  FastAPI backend
-│   ├── `inference.py`  image preprocessing and prediction logic
-│   ├── `model.py`  CNN architecture used for inference
-│   └── best_cnn_model.pth
+│   ├── app.py                 # FastAPI backend
+│   ├── inference.py           # Image preprocessing and prediction logic
+│   ├── model.py               # CNN architecture used for inference
+│   └── best_cnn_model.pth     # Model weights used by the API
 │
 ├── frontend/
-│   ├── `index.html` - application interface
-│   ├── `script.js` - drawing and prediction behavior
-│   └── `style.css` - interface styling
+│   ├── index.html             # Application interface
+│   ├── script.js              # Drawing and prediction behavior
+│   └── style.css              # Interface styling
 │
 ├── images/
-│   ├── model_loss.png
-│   ├── model_accuracy.png
+│   ├── model_history.png
 │   ├── confusion_matrix.png
 │   └── app_preview.png
 │
-├── `base_model.ipynb` - original baseline CNN
-├── `cnn_analysis.ipynb` - model analysis, experiments, plots, and results
-├── `cnn.py` - complete CNN training and evaluation pipeline
-├── `best_cnn_model.pth` - saved parameters from the best model checkpoint
-└── `README.md`
+├── base_model.ipynb           # Original baseline CNN
+├── cnn_analysis.ipynb         # Model experiments, plots, and results
+├── cnn.py                     # CNN training and evaluation pipeline
+├── best_cnn_model.pth         # Saved best model checkpoint
+└── README.md
+```
