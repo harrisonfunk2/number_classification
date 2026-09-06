@@ -79,7 +79,7 @@ On the untouched MNIST test set, the final model achieved:
 ### Training Performance
 
 <p align="center">
-  <img src="images/model_history.png" width="48%">
+  <img src="images/model_history.png" width="75%">
 </p>
 
 ### Confusion Matrix
@@ -104,7 +104,7 @@ The browser converts the drawing into an image and sends it to a FastAPI `/predi
 ### Application Preview
 
 <p align="center">
-  <img src="images/app_preview.png" width="55%">
+  <img src="images/app_preview.png" width="30%">
 </p>
 
 
