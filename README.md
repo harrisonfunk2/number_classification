@@ -2,8 +2,15 @@
 
 ## Goal
 
-Build and train a convolutional neural network (CNN) to classify  
-`28 × 28` grayscale images of handwritten digits from `0` to `9`.
+Build and train a convolutional neural network (CNN) to classify  `28 × 28` grayscale images of handwritten digits from `0` to `9`.
+
+The trained model is also integrated into an interactive web application where users can draw a digit using their cursor and receive a prediction from the model.
+
+The application uses:
+
+- PyTorch for the CNN and inference pipeline
+  FastAPI for the backend prediction API
+- HTML, CSS, and JavaScript for the interactive drawing interface
 
 ## Dataset
 
@@ -36,7 +43,7 @@ The original 60,000-image training set was divided into training and validation 
 
 ## Baseline Model
 
-The file `baseline_model.ipynb` contains the original baseline CNN.
+The file `base_model.ipynb` contains the original baseline CNN.
 
 The baseline model achieved approximately 99.2% validation accuracy, but its training curves showed signs of overfitting.
 
@@ -63,20 +70,67 @@ This prevents the final model from automatically using the weights from the last
 
 On the untouched MNIST test set, the final model achieved:
 
-- Accuracy: approximately **99.41%**
-- Incorrect predictions: **59 out of 10,000 images**
-- Macro precision, recall, and F1 score: approximately **99.4%**
+- **Accuracy: ~99.41%**
+- **Macro Precision: ~99.4%**
+- **Macro Recall: ~99.4%**
+- **Macro F1 Score: ~99.4%**
+- **59 incorrect predictions out of 10,000 test images**
 
-The project also includes:
+### Training Performance
 
-- Training and validation loss curves
-- Training and validation accuracy curves
-- A confusion matrix
-- Inspection of high-confidence incorrect predictions
+<p align="center">
+  <img src="images/model_loss.png" width="48%">
+  <img src="images/model_accuracy.png" width="48%">
+</p>
 
-## Project Files
+### Confusion Matrix
 
-- `cnn.py` — complete training and evaluation pipeline
-- `cnn_analysis.ipynb` — interactive analysis with plots and outputs
-- `baseline_model.ipynb` — original baseline CNN
-- `best_cnn_model.pth` — saved parameters from the best model checkpoint
+<p align="center">
+  <img src="images/confusion_matrix.png" width="55%">
+</p>
+
+## Interactive Web Application
+
+The trained CNN was integrated into an interactive browser application.
+
+Users can:
+
+- Draw a handwritten digit on a canvas
+- Receive an automatically generated prediction
+- View the model's confidence score
+- Clear the canvas and draw another digit
+
+The browser converts the drawing into an image and sends it to a FastAPI `/predict` endpoint. The backend preprocesses the image into the same `28 × 28` format used during training before passing it through the CNN.
+
+### Application Preview
+
+<p align="center">
+  <img src="images/app_preview.png" width="55%">
+</p>
+
+
+## Project Structure
+number_classification/
+│
+├── backend/
+│   ├── `app.py` - FastAPI backend
+│   ├── `inference.py` - image preprocessing and prediction logic
+│   ├── `model.py` - CNN architecture used for inference
+│   └── best_cnn_model.pth
+│
+├── frontend/
+│   ├── `index.html` - application interface
+│   ├── `script.js` - drawing and prediction behavior
+│   └── `style.css` - interface styling
+│
+├── images/
+│   ├── model_loss.png
+│   ├── model_accuracy.png
+│   ├── confusion_matrix.png
+│   └── app_preview.png
+│
+├── `base_model.ipynb` - original baseline CNN
+├── `cnn_analysis.ipynb` - model analysis, experiments, plots, and results
+├── `cnn.py` - complete CNN training and evaluation pipeline
+├── `best_cnn_model.pth` - saved parameters from the best model checkpoint
+└── `README.md`
