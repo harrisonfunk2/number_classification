@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#drawing-canvas {
+    border: 2px solid black;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+#clear-button{
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
