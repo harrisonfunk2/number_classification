@@ -8,7 +8,8 @@ from inference import pre_process_image, predict_digit
 app = FastAPI()
 
 origins = ['http://localhost:5500', 
-           'http://127.0.0.1:5500',]
+           'http://127.0.0.1:5500', 
+           'https://harrisonfunk2.github.io',]
 
 
 app.add_middleware(CORSMiddleware, 
